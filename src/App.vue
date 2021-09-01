@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--<hello-world :msg="indice"></hello-world>-->
+    <Element :Element="pouet"/>
   </div>
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
+import Element from "./components/Element";
+
 
 export default {
   name: 'App',
   components: {
+    Element,
     HelloWorld
+  },
+  data: function () {
+    return {
+
+    }
+  },
+  mounted: function () {
+    this.$store.commit('initBoucle')
+  },
+  computed: {
+    pouet () {
+      return this.$store.state.currentElement;
+    }
   }
 }
 </script>
